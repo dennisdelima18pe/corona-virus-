@@ -1,0 +1,45 @@
+.sessao-estados {
+  overflow-y: scroll;
+  height: 300px;
+  margin-top: 128px;
+}
+.header-estados {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.header-estados h2 {
+  width: 4px;
+}
+.header-estados h2::after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 2px;
+  margin: 8px;
+  background: #6b52f0;
+}
+.casos-estados {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 24px;
+}
+.casos-estados h3 {
+  color: #757579;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border: 1px solid #757579;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6b52f0;
+  border-radius: 10px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
