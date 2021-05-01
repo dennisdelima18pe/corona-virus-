@@ -1,6 +1,22 @@
-import React from 'react';
-import Api from './Services/Api.js';
-import './Css/Geral.css';
+import React from "react";
+import Api from "./Services/Api.js";
+import "./Css/Geral.css";
+
+const getEstadoComMaisMortes = (estados) => {
+  let maiorEstado = estados.reduce((acc, at) => {
+    if (acc.deaths > at.deaths) {
+      return acc;
+    }
+    return at;
+  });
+
+  // a variável `maiorEstado` é um objeto contendo os dados do UF selecionado
+
+  return (
+    <div>{`Estado com mais mortes: ${maiorEstado.uf}. Mortes: ${maiorEstado.deaths}`}</div>
+  );
+};
+
 const EstadosEspecificos = () => {
   const [Estado, setEstado] = React.useState([]);
   React.useState(() => {
@@ -10,14 +26,7 @@ const EstadosEspecificos = () => {
   }, []);
 
   return (
-    <section>
-      {Estado.reduce((acumulador, atual) => {
-        if (acumulador > atual.deaths) {
-          <div>{acumulador}</div>;
-        }
-        return atual.deaths;
-      }, 0)}
-    </section>
+    <section>{Estado.length > 0 ? getEstadoComMaisMortes(Estado) : ""}</section>
   );
 };
 
